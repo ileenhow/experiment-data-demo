@@ -29,14 +29,17 @@ header {
     border-bottom: 1px solid #ccc;
     line-height: 2em;
     text-align: center;
+    cursor: pointer;
 }
 
-.all-data-page {
+.all-data-page,
+.single-type-page {
     flex: 1;
     padding: 0 20px;
 }
 
-.all-data-page .title {
+.all-data-page .title,
+.single-type-page .title {
     line-height: 32px;
     text-align: center;
 }
@@ -80,4 +83,23 @@ header {
 
 .exp-bar-chart {
     margin-top: 30px;
+}
+
+.single-type-page {
+    display: flex;
+}
+
+.single-type-page .table-part {
+    width: 60%;
+}
+
+.single-type-page .csv-table {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.single-type-page .barchart-part {
+    box-sizing: border-box;
+    width: 40%;
+    padding-left: 20px;
 }

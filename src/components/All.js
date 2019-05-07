@@ -34,7 +34,7 @@ export default function All() {
         })
     })
 
-    function getBarChartData () {
+    function getBarChartData() {
         const csv = expCsvs[activeExpIndex].data
         return csv.slice(1).reduce((result, data) => {
             if (data.length && data.length > 1) {
