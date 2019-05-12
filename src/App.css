@@ -103,3 +103,17 @@ header {
     width: 40%;
     padding-left: 20px;
 }
+
+.video-pair {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.video-pair video {
+    display: inline-block;
+    outline: none;
+    width: 50%;
+    height: 240px;
+}

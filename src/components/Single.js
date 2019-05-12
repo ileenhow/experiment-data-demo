@@ -3,12 +3,14 @@ import dirTree from '../dirTree.json'
 import { csv } from '../utils/csv'
 import CsvTable from '../components/CsvTable'
 import ExpBarChart from '../components/ExpBarChart'
+import VideoPair from '../components/VideoPair'
 
 export default function Single({ type }) {
     const csvFileInfo = dirTree.children.find(item => {
         return item.name === `result_${type}.csv`
     })
     const [csvResult, setCsvResult] = useState({})
+    const [videos, setVideos] = useState([])
 
     useEffect(() => {
         if (csvResult.data) {
@@ -45,11 +47,25 @@ export default function Single({ type }) {
         }, [])
     }
 
+    function handleCellClick({ value, row, col }) {
+        if (value === '0') {
+            return
+        }
+        const videos = dirTree.children
+            .find(item => item.name === row).children
+            .find(item => item.name === type).children
+            .find(item => item.name === col).children
+        setVideos(videos)
+    }
+
     return (
         <div className="single-type-page">
             <div className="table-part">
                 <div className="title">{`${type}结果分析`}</div>
-                <CsvTable csv={csvResult} />
+                <CsvTable csv={csvResult} onCellClick={handleCellClick}/>
+                {videos.length > 0 && videos.map(data => (
+                    <VideoPair data={data} />
+                ))}
             </div>
             <ul className="barchart-part">
                 {csvResult.data && getBarChartData().map(data => (
