@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "csv-parse": "^4.4.1",
+    "csv-parse": "^4.4.6",
     "neat-csv": "^5.0.0",
     "papaparse": "^4.6.3",
     "react": "^16.8.6",
